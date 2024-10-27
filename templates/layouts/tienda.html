@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Game Store</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %} " />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!--LINK A BOOTSTRAP 5.3.3-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--LINK BOTONES SOCIAL MEDIA FOOTER-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <!-- Bootstrap core JS-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+
+    <!-- Core theme JS-->
+    <scri src="{% static 'js/scripts.js' %}"></script>
+</head>
+
+<style>
+    .nav-link {
+    color: black; /* Color de texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    transition: text-shadow 0.3s; /* Agrega una transición suave para el cambio de sombra de texto */
+    }
+  
+    .nav-link:hover {
+    text-shadow: 0 0 5px rgb(0, 21, 255); /* Cambia la sombra de texto cuando el cursor pasa sobre el enlace */
+    }  
+
+    .dropdown-menu {
+    background: linear-gradient(#ffffff, #9cbddc, #32a6d3f6, #04a0dd);
+    }
+
+    .dropdown-item:hover {
+    text-shadow: 0 0 5px rgb(0, 21, 255); /* Cambia la sombra de texto cuando el cursor pasa sobre el enlace */
+    background-color: rgba(6, 126, 86, 0);
+    }
+
+    .btn {
+    text-shadow: 0 0 5px rgb(0, 21, 255); /* Cambia la sombra de texto cuando el cursor pasa sobre el enlace */
+    }
+
+    .btn-outline-dark:hover {
+    background: linear-gradient(#ffffff, #9cbddc, #32a6d3f6, #04a0dd);
+    border-color: rgb(0, 0, 0);
+    color: #fff; /* Cambia el color del texto si es necesario */
+}
+
+
+
+</style>
+
+
+<body style="background-image: url('/static/assets/fondoPet.png');
+">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger sticky-top" style="background: linear-gradient(#04a0dd, #32a6d3f6, #9cbddc, #ffffff); border: azure;">
+        <div class="container px-2 px-lg-2">
+            <!-- <a class="navbar-brand" href="/">HappyPet Store</a> -->
+            <a class="navbar-logo" href="/"> <!--href de esta forma sirve para volver a la pagina principal cada vez que se hace click en logo-->
+                <img class="img-fluid" src="{% static 'assets/LogoPetChicoH.png' %}" width="50%" heigth="50%" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/"></span>
+                            Inicio
+                        </a>
+                    </li>
+
+
+                    <div class="dropdown show">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {% for categoria in categorias %}
+                            <a class="dropdown-item" href="{% url 'tienda:productocategoria' categoria.id %}">{{categoria.nombre}}</a> {% endfor %}
+                        </div>
+                    </div>
+
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/listarproductos">
+                                Listado Productos
+                            </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/categorias">
+                                Listado Categorias
+                            </a>
+                    </li>
+
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/nosotros">
+                            Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/contacto">
+                            Contáctanos
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav d-flex ml-auto mb-2 mb-lg-0 ms-lg-4">
+                    {% if user.is_authenticated %}
+
+                    {% load humanize %}
+                    <div class="d-flex">
+                        <a href="{% url 'tienda:viewcart' %}" class="btn btn-outline-dark">
+                            <img src="{% static 'assets/carritoPetChico.png' %}" class="me-1" alt="Carrito">
+                            <!--<i class="bi-cart-fill me-1"></i> DEJAR ESTO EN CASO DE EMERGENCIA-->
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">$ {{ importe_total_carro | intcomma }}</span>
+                        </a>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <b>{{ user.username }}</b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">
+                                    Cerrar Sesión
+                            </a>
+                    </li>
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">
+                            Ingresar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/registrar">
+                            Registrar
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="wrapper" style="background-color: rgb(27, 27, 36); width: 90%; max-width: 1500px; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 10px;"> <!-- INICIO WRAPPER -->
+
+
+    <section class="container">
+        <!-- CONTENIDO del LAYOUT -->
+        {% block content%} {% endblock %}
+    </section>
+
+</div> <!--FIN WRAPPER-->
+
+{% include 'includes/footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--MENSAJES-->
+    {% if messages %} {% for message in messages %}
+    <script>
+        Swal.fire({
+            "title": "Felicitaciones!!",
+            "text": "{{ message }}",
+            "icon": "success"
+        })
+    </script>
+    {% endfor %} {% endif %}
+    <!-- FIN MENSAJES -->
+</body>
+
+
+</html>

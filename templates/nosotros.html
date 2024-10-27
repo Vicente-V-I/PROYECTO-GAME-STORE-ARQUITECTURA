@@ -1,0 +1,61 @@
+{% extends 'layouts/tienda.html' %}{% load static %} {% block content %}
+
+<style>
+    .txtquien {
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        margin-top: 30px;
+        color: white;
+    }
+
+    .txtnosotros {
+        color: white;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    .centered-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .centered-image {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .centered-image img {
+        max-width: 60%; /* Ajusta el valor para hacer la imagen más pequeña */
+        height: auto;
+        border-radius: 10px; /* Añadí borde redondeado a la imagen */
+    }
+
+    .centered-content {
+        max-width: 800px;
+        text-align: center;
+        border-radius: 10px; /* Añadí bordes redondeados */
+        text-shadow: 0 0 10px rgba(26, 155, 191, 0.759); /* Añadí sombra para darle efecto de tarjeta */
+    }
+</style>
+
+<div class="centered-container">
+    <div class="centered-image animate__animated animate__bounceInUp animate__delay-0.4s">
+        <img class="img-fluid" src="{% static 'assets/imgquien.png' %}" alt="">
+    </div>
+    <div class="txtnosotros centered-content animate__animated animate__backInRight animate__delay-0.3s">
+        <h4 class="txtquien">¿Quienes somos?</h4>
+        <p>
+            <h5>Bienvenidos a Game Store, tu destino definitivo para el mundo de los videojuegos. Somos un equipo apasionado de gamers que decidió convertir su amor por los videojuegos en una plataforma única. Lo que comenzó como un pequeño proyecto entre amigos entusiastas se ha transformado en una tienda especializada que ofrece una amplia selección de juegos, consolas y accesorios gaming de la más alta calidad.
+                <br><br>
+                En Game Store, nos enorgullece brindar a nuestra comunidad las últimas novedades del mundo gaming, desde los títulos más esperados hasta coleccionables exclusivos.
+                <br><br>
+            </h5>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

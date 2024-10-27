@@ -1,0 +1,120 @@
+<style>
+    .custom-footer {
+      background-color: rgb(17, 17, 17);
+      color: azure;
+    }
+    .custom-footer a {
+      color: azure; /* Texto color azure para enlaces */
+    }
+    .custom-footer a:hover {
+      color: #ddd; /* Color gris claro para enlaces al pasar el ratón */
+    }
+    
+  </style>
+  
+  
+  
+  <footer class="custom-footer text-center">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          
+          <!-- Twitter -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+            ><i class="fa fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+            ><i class="fa fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+            ><i class="fa fa-instagram"></i
+          ></a>
+    
+        </section>
+        <!-- Section: Social media -->
+    
+        <!-- Section: Form -->
+        <section class="">
+          <form action="">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
+              <!--Grid column-->
+              <div class="col-auto">
+                <p class="pt-2">
+                  <strong>Suscríbete a nuestro Newsletter:</strong>
+                </p>
+              </div>
+              <!--Grid column-->
+              <div class="col-auto">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: linear-gradient(#ffffff, #9cbddc, #32a6d3f6, #04a0dd); color: white;"> Suscribirse
+              </button>
+              </div>
+              <!--Grid column-->
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+          </form>
+        </section>
+        <!-- Section: Form -->
+    
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+    
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="index.html">tiendagamestore@gmail.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <!-- INICIO MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: rgb(17, 17, 17);">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: white;">¿Quieres recibir alertas a tu correo electrónico sobre futuros proyectos y productos en Happy Pet?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="subscriptionForm">
+            <div class="mb-3">
+              <label for="emailInput" class="col-form-label" style="color: white;">Correo Electrónico:</label>
+              <input type="email" class="form-control" id="emailInput" required>
+              <div class="invalid-feedback" style="color: white;">
+                Por favor ingresa un correo electrónico válido.
+              </div>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="confirmationCheck" required>
+              <label class="form-check-label" for="confirmationCheck" style="color: white;">Confirmo que quiero recibir alertas.</label>
+              <div class="invalid-feedback" style="color: white;">
+                Debes confirmar que quieres recibir alertas.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" style="background-color: #0844d1; color: white;">Suscribirse</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Cerrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- CIERRE MODAL -->
